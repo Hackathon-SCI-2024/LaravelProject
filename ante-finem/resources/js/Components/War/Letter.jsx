@@ -64,9 +64,11 @@ export default function Letter_js() {
 
   useEffect(() => {
     if (areAllCorrect()) {
-      alert('Wszystkie słowa zostały poprawnie odgadnięte!');
+        setTimeout(() => {
+            alert('Wszystkie słowa zostały poprawnie odgadnięte!');
+        }, 100);
     }
-  }, [inputs]); 
+  }, [inputs]);
 
   return (
     <div className='absolute w-[50vw] p-[4rem] top-0'>
