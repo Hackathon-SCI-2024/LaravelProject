@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './War.css';
-
+import Hints from './Hints.jsx';
 export default function Letter_js() {
   const decodedWords = [
     "Rozpoczac", "ofensywe", "na", "froncie", "wschodnim", "o", "godzinie", "4:00",
@@ -72,7 +72,10 @@ export default function Letter_js() {
 
   return (
     <div className='absolute w-[50vw] p-[4rem] top-0'>
-      <p style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-evenly' }}>
+        <div className='hints-container'>
+        <Hints />
+        </div>
+      <p style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-evenly' }} className='p_text'>
         {encodedWords.map((word, index) => (
           <span key={index} style={{ textAlign: 'center', margin: '5px' }}>
             {word}
