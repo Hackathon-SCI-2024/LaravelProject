@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\AntiqueController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 
