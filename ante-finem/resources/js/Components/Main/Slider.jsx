@@ -9,7 +9,7 @@ const SliderTimeline = ({ puzzle, setPuzzle }) => {
 	];
 
 	return (
-		<div className="relative w-full flex flex-col items-center">
+		<div className="absolute bottom-5 w-full flex flex-col items-center">
 			{/* Timeline */}
 			<div className="relative w-full max-w-lg mt-6">
 				{/* Line */}

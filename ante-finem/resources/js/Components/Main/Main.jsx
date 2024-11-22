@@ -1,6 +1,7 @@
 //Technologies
 
 import React from "react";
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 // ---
 //Components imports
@@ -23,17 +24,32 @@ import warImage from "../../../../assets/20th_century/war_background.jpg";
 // ---
 
 export default function Main() {
-const [puzzle, setPuzzle] = React.useState(0);
-const puzzles = [<Home />, <Prehistoric />, "", "","", <Antique />, "", "","", <Medieval />, "", "","", <War />, "", "","",];
-const puzzleImges = ["", prehistoricImage, "", "","", RomeImage,"", "", "", BaghdadImage, "", "","", warImage, "", "","",];
+	const [puzzle, setPuzzle] = React.useState(0);
+	const puzzles = [
+		<Home setPuzzle={setPuzzle} />,
+		<Prehistoric setPuzzle={setPuzzle} />,
+		"",
+		"",
+		"",
+		<Antique />,
+		"",
+		"",
+		"",
+		<Medieval />,
+		"",
+		"",
+		"",
+		<War />,
+		"",
+		"",
+		"",
+	];
+	const puzzleImges = ["", prehistoricImage, "", "", "", RomeImage, "", "", "", BaghdadImage, "", "", "", warImage, "", "", ""];
 
-    return (
-        <div
-            className="bg-cover bg-center min-h-screen"
-            style={{ backgroundImage: `url(${puzzleImges[puzzle]})` }}
-        >
-            {puzzles[puzzle]}
-            <Slider className="" puzzle={puzzle} setPuzzle={setPuzzle} />
-        </div>
-    );
+	return (
+		<div className="bg-cover bg-center w-screen min-h-screen flex flex-col" style={{ backgroundImage: `url(${puzzleImges[puzzle]})` }}>
+			<div className="w-full flex-1">{puzzles[puzzle]}</div>
+			{puzzle !== 0 && <Slider puzzle={puzzle} setPuzzle={setPuzzle} />}
+		</div>
+	);
 }
