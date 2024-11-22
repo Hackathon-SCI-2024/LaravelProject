@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\AntiqueController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\TestController;
+use App\Http\Controllers\MainController;
 
-Route::get('/', [TestController::class, 'showTest'])->name('show.test');
+
+Route::get('/', [MainController::class, 'main'])->name('main');
+
