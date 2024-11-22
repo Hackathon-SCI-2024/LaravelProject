@@ -24,8 +24,8 @@ import warImage from "../../../../assets/20th_century/war_background.jpg";
 
 export default function Main() {
 const [puzzle, setPuzzle] = React.useState(0);
-const puzzles = [<Home />, <Prehistoric />, <Antique />, <Medieval />, <War />];
-const puzzleImges = ["", prehistoricImage, RomeImage, BaghdadImage, warImage];
+const puzzles = [<Home />, <Prehistoric />, "", "","", <Antique />, "", "","", <Medieval />, "", "","", <War />, "", "","",];
+const puzzleImges = ["", prehistoricImage, "", "","", RomeImage,"", "", "", BaghdadImage, "", "","", warImage, "", "","",];
 
     return (
         <div
@@ -33,7 +33,7 @@ const puzzleImges = ["", prehistoricImage, RomeImage, BaghdadImage, warImage];
             style={{ backgroundImage: `url(${puzzleImges[puzzle]})` }}
         >
             {puzzles[puzzle]}
-            <Slider puzzle={puzzle} setPuzzle={setPuzzle} />
+            <Slider className="" puzzle={puzzle} setPuzzle={setPuzzle} />
         </div>
     );
 }
