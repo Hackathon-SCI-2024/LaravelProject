@@ -8,7 +8,7 @@ export default function Hints() {
     }
   return (
     <>
-    <img src={hint_guy} className='rounded-full h-[10vh] w-[5vw]' onClick={}/>
+    <img src={hint_guy} className='rounded-full h-[10vh] w-[5vw]'/>
     <div>
         <img src={speech_bubble}></img>
     </div>
