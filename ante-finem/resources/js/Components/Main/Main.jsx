@@ -1,6 +1,7 @@
 //Technologies
 
 import React from "react";
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 // ---
 //Components imports
@@ -29,11 +30,17 @@ const puzzleImges = ["", prehistoricImage, "", "","", RomeImage,"", "", "", Bagh
 
     return (
         <div
-            className="bg-cover bg-center min-h-screen"
+            className="bg-cover bg-center w-screen min-h-screen flex flex-col"
             style={{ backgroundImage: `url(${puzzleImges[puzzle]})` }}
         >
-            {puzzles[puzzle]}
-            <Slider className="" puzzle={puzzle} setPuzzle={setPuzzle} />
+            <div className="w-full flex-1">
+                {puzzles[puzzle]}
+            </div>
+            {puzzle !== 0 &&
+                <div className="h-[75px] w-full bg-green-500">
+                    <Slider puzzle={puzzle} setPuzzle={setPuzzle} />
+                </div>
+            }
         </div>
     );
 }
