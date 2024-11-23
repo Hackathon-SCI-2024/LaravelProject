@@ -23,15 +23,28 @@ const Popup = ({ title, content, onClose }) => {
 export default function Antique_solomon() {
   const [showPopup, setShowPopup] = useState(false);
   const [popupContent, setPopupContent] = useState(null);
+  const [initPopup, setInitPopup] = useState(true); // State for initial popup
+
+  useEffect(() => {
+    // Show the initial popup on component mount
+    if (initPopup) {
+      setPopupContent({
+        title: "Hello Solomon!",
+        content: "Your task is to decide the fate of the child claimed by two women. What will you do, pillar of wisdom?",
+      });
+      setShowPopup(true);
+    }
+  }, [initPopup]);
+
+  const closePopup = () => {
+    setShowPopup(false);
+    if (initPopup) setInitPopup(false); // Close initial popup
+    setPopupContent(null);
+  };
 
   const openPopup = (title, content) => {
     setPopupContent({ title, content });
     setShowPopup(true);
-  };
-
-  const closePopup = () => {
-    setShowPopup(false);
-    setPopupContent(null);
   };
 
   const makeDecision = (decision) => {
@@ -56,22 +69,23 @@ export default function Antique_solomon() {
 
       {/* Decision buttons */}
       <div className='ml-2'>
-      <div>
-        <button onClick={() => makeDecision('Give the child to the woman on the left')}>
-          Give child to the woman on the left
-        </button>
-      </div>
-      <br></br>
-      <div>
-        <button onClick={() => makeDecision('Give the child to the woman on the right')}>
-          Give child to the woman on the right
-        </button>
-      </div><br></br>
-      <div>
-        <button onClick={() => makeDecision('Give half of the child to each woman')}>
-          Give half of the child to each woman
-        </button>
-      </div>
+        <div>
+          <button onClick={() => makeDecision('Give the child to the woman on the left')}>
+            Give child to the woman on the left
+          </button>
+        </div>
+        <br />
+        <div>
+          <button onClick={() => makeDecision('Give the child to the woman on the right')}>
+            Give child to the woman on the right
+          </button>
+        </div>
+        <br />
+        <div>
+          <button onClick={() => makeDecision('Give half of the child to each woman')}>
+            Give half of the child to each woman
+          </button>
+        </div>
       </div>
 
       {/* Women positioned lower and on either side */}
