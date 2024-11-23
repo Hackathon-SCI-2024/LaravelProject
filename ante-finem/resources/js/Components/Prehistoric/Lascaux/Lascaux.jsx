@@ -5,8 +5,10 @@ import lascaux_3 from './../../../../../assets/prehistory/lascaux_3.jpg';
 import lascaux_4 from './../../../../../assets/prehistory/lascaux_4.jpg';
 import lascaux_5 from './../../../../../assets/prehistory/lascaux_5.jpg';
 import lascaux_6 from './../../../../../assets/prehistory/lascaux_6.jpg';
-import questionMark from "./../../../../../assets/prehistory/question-fill.png"
+import questionMark from "./../../../../../assets/prehistory/question-fill.png";
+import lascauxStoneTexture from "./../../../../../assets/prehistory/lascaux_stone_texture.jpg";
 import Popup from '../../Main/Popup.jsx';
+
 // Funkcja do generowania pustej tablicy dla puzzle 2x3
 const generatePuzzle = () => {
   const rows = 2; // Wiersze
@@ -83,12 +85,12 @@ const Lascaux = () => {
             <img className="w-8 h-8" src={questionMark} />
         </button>
         {description ? (
-          <div className="w-32 text-xs bg-white/60 p-2 rounded-md">
-            {lascauxDescription}
+          <div className="w-60 bg-white/50 p-2 rounded-md">
+            <p className="text-md text-justify">{lascauxDescription}</p>
           </div>
         ) : (<div />)}
       </div>
-    <div style={{ textAlign: 'center'}}>
+    <div className="text-center w-full h-screen flex justify-center items-center">
       {isWinner ? (
           <Popup
             title="Wygrałeś!"
@@ -96,11 +98,12 @@ const Lascaux = () => {
             onClose={() => setIsWinner(false)}
           />
         ) : (
-        <div class="ml-[30vw] mt-[15vh]"
+        <div class="p-12 bg-cover bg-center rounded-3xl bg-[rgb(79,69,55)]"
           style={{
             display: 'grid',
             gridTemplateColumns: `repeat(${cols}, 200px)`,
-            gap: '1px',
+            gap: '5px',
+            boxShadow: '0 5px 10px 5px rgb(93,76,60)'
           }}
         >
           {tiles.map((tile, index) => (
@@ -110,18 +113,19 @@ const Lascaux = () => {
               style={{
                 width: '200px',
                 height: '200px',
-                backgroundColor: tile === 0 ? 'rgba(255, 255, 255, 0.6)' : '#ddd',
+                backgroundColor: tile === 0 ? 'rgba(102,102,102,0.35)' : '#ddd',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 fontSize: '24px',
                 cursor: tile === 0 ? 'default' : 'pointer',
-                border: '1px solid #ccc',
                 backgroundImage: tile !== 0 
                   ? `url(${images[tile - 1]})` 
                   : 'none',
                 backgroundSize: 'cover',
-                backgroundRepeat: 'no-repeat'
+                backgroundRepeat: 'no-repeat',
+                borderRadius: '10px',
+                backdropFilter: 'blur(5px)',
               }}
             >
               {tile !== 0 ? '' : ''}
