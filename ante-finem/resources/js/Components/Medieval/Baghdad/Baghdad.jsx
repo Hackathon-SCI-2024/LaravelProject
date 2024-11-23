@@ -114,34 +114,42 @@ export default function Baghdad() {
         }
     
 	return (
-		<div id="background" class="pt-[15vh]">
-            <div id="sheet" className="h-[70vh] bg-contain ml-[30vw] bg-no-repeat w-[60vw] pl-[14vw] pt-[20vh]" style={{backgroundImage: `url(${paperSheet})`}}>
-                <div id="equation">
-                    <span class="font-serif text-6xl">{letter1}</span>
-                    <span class="font-serif text-6xl">{operation1}</span>
-                    <span class="font-serif text-6xl">{letter2}</span>
-                    <span class="font-serif text-6xl">{operation2}</span>
-                    <span class="font-serif text-6xl">{letter3}</span>
+		<div id="background" className="w-screen h-screen flex justify-center items-center">
+
+            <div id="sheet" className="w-[50vw] h-[40vh] bg-[rgba(254,212,163,0.85)] border-solid border-8 rounded-xl border-[rgb(99,63,31)] flex justify-center items-center gap-10 flex-col" style={{boxShadow: '0 5px 10px 5px rgba(67,20,7,0.8)'}}>
+
+                <div id="equation" style={{fontFamily: "monospace"}}>
+                    <span className="font-serif text-6xl">{letter1}</span>
+                    <span className="font-serif text-6xl">{operation1}</span>
+                    <span className="font-serif text-6xl">{letter2}</span>
+                    <span className="font-serif text-6xl">{operation2}</span>
+                    <span className="font-serif text-6xl">{letter3}</span>
                 </div>
-                <div>
-                    {result}
+
+                <div className="flex gap-5">
+                  <div className="w-10"></div>
+                  <input type="text" value={inputText} className="text-left appearance-none bg-transparent border-solid border-2 border-transparent border-b-orange-950 w-[400px] outline-none text-xl placeholder:text-[rgb(190,145,100)]" style={{direction: 'rtr', unicodeBidi: 'plaintext', backgroundColor: color}} placeholder="Enter your answer using keyboard below."></input>
+                  <button className="border-solid border-2 border-orange-950 rounded-xl w-10 [-webkit-text-stroke:0.3px]" ><i className="bi bi-backspace"></i></button>
                 </div>
-                <input type="text" value={inputText} className="text-left" style={{direction: 'rtr', unicodeBidi: 'plaintext', backgroundColor: color}}></input>
-                <div id="digits">
+
+                <div id="digits" className="flex gap-2">
                     {
                         indoArabicDigits.map(((digit, index) => (
-                            <button key={index} onClick={() => addDigit(digit)}>{digit.indoArabic}</button>
+                            <button className="border-solid border-2 border-orange-950 rounded-xl w-8" key={index} onClick={() => addDigit(digit)}>{digit.indoArabic}</button>
                         )))
                     }
                 </div>
-                <div id="operations">
+
+                <div id="operations" className="flex gap-2">
                     {
                         operations.map(((operation, index) => (
-                            <button key={index} onClick={() => setText(prevText => prevText + "\u202C" + operation)}>{operation}</button>
+                            <button className="border-solid border-2 border-orange-950 rounded-xl w-8" key={index} onClick={() => setText(prevText => prevText + "\u202C" + operation)}>{operation}</button>
                         )))
                     }
                 </div>
+
             </div>
+
 		</div>
 	);
 }
