@@ -17,6 +17,7 @@ export default function Antique_solomon() {
   useEffect(() => {
     if (initPopup) {
       setPopupContent({
+        img_popup : solomon_popup,
         title: "Hello Solomon!",
         content: "Your task is to decide the fate of the child claimed by two women. What will you do, pillar of wisdom?",
       });
@@ -59,6 +60,7 @@ export default function Antique_solomon() {
   <Popup 
     title={popupContent?.title} 
     content={popupContent?.content} 
+    img_popup = {popupContent?.img_popup}
     onClose={closePopup} 
   />
 )}

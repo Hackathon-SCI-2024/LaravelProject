@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./War.css";
 import Hints from "./Hints";
 import letter from "./../../../../assets/20th_century/hitler_letter.png";
-
+import Popup from './../Main/Popup';
 export default function Letter() {
 	const decodedWords = [
 		"Rozpoczac",
@@ -106,17 +106,13 @@ export default function Letter() {
 		<div className="war-container">
 			{/* Initial Popup */}
 			{showInitPopup && (
-				<div className="popup-container">
-					<div className="popup-content">
-						<p className="popup-text">
-							Jesteś w zespole osób, które muszą rozszyfrować szyfr Hitlera. Powodzenia! Cała Europa jest teraz w twoich rękach.
-						</p>
-						<button className="popup-close" onClick={closeInitPopup}>
-							Start
-						</button>
-					</div>
-				</div>
-			)}
+  <Popup 
+    title="Podróżniku!"
+    content="Jesteś w zespole osób, które muszą rozszyfrować szyfr Hitlera. Powodzenia! Cała Europa jest teraz w twoich rękach."
+    onClose={closeInitPopup} 
+  />
+)}
+
 
 			{/* Main Letter and Inputs */}
 			<div className="letter-container">
@@ -184,14 +180,11 @@ export default function Letter() {
 
 					{/* Completion Popup */}
 					{showPopup && (
-						<div className="popup-container">
-							<div className="popup-content">
-								<p className="popup-text">Gratulacje! Wszystkie słowa zostały poprawnie odgadnięte!</p>
-								<button className="popup-close" onClick={closePopup}>
-									Zamknij
-								</button>
-							</div>
-						</div>
+						<Popup 
+						title="Gratulacje!"
+						content="Wszystkie słowa zostały poprawnie odgadnięte!"
+						onClose={closeInitPopup} 
+						/>
 					)}
 				</div>
 			</div>
