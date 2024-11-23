@@ -35,12 +35,12 @@ export default function Home({ setPuzzle }) {
 								className="absolute w-full h-[30px] [transform:translateY(-50%)] border-solid border-2 border-transparent border-r-slate-50 opacity-0"
 							></div>
 						</div>
-						<h2 className="text-5xl">Dive into history, now.</h2>
+						<h2 className="text-5xl">Zanurz się teraz w historii.</h2>
 						<div
 							id="homeEnableGameText"
 							className="flex items-center gap-2 border-solid border-[1px] border-transparent hover:border-b-slate-50 w-fit"
 						>
-							<p className="cursor-pointer" onClick={() => setPuzzle(1)}>Move back in time.</p>
+							<p className="cursor-pointer" onClick={() => setPuzzle(1)}>Cofnij się w czasie.</p>
 							<i className="bi bi-arrow-right"></i>
 						</div>
 					</div>
