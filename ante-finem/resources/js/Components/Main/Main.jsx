@@ -34,7 +34,7 @@ export default function Main() {
 		"",
 		"",
 		"",
-		<Antique />,
+		<Antique setPuzzle={setPuzzle}/>,
 		"",
 		"",
 		"",
