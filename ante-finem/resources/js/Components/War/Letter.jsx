@@ -87,6 +87,7 @@ export default function Letter() {
                 <Popup
                     title="Podróżniku!"
                     content="Jesteś w zespole osób, które muszą rozszyfrować szyfr Hitlera. Powodzenia! Cała Europa jest teraz w twoich rękach."
+                    bgColor={"bg-orange-200"}
                     onClose={closeInitPopup}
                 />
             )}
