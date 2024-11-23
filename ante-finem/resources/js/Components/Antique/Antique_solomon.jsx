@@ -18,8 +18,8 @@ export default function Antique_solomon() {
     if (initPopup) {
       setPopupContent({
         img_popup : solomon_popup,
-        title: "Hello Solomon!",
-        content: "Your task is to decide the fate of the child claimed by two women. What will you do, pillar of wisdom?",
+        title: "Witaj Solomonie!",
+        content: "Twoje zadanie to zdecydowanie o losie dziecka, o które walczą dwie kobiety. Co zrobisz, filarze mądrości?",
       });
       setShowPopup(true);
     }
@@ -42,13 +42,13 @@ export default function Antique_solomon() {
   const makeDecision = (decision) => {
     if (decision === 'Give half of the child to each woman') {
       openPopup(
-        "Wise Decision!",
-        "The true mother pleaded to save the child, revealing her identity. Wisdom has prevailed!"
+        "Mądra decyzja!",
+        "Prawdziwa matka błagała o ocalenie dziecka, ujawniając swoją tożsamość. Mądrość zwyciężyła!"
       );
     } else {
       openPopup(
-        "Argument Breaks Out!",
-        "The women started arguing fiercely, and your decision failed to settle the dispute. Try again!"
+        "Wywiązuje się kłótnia!",
+        "Kobiety zaczęły kłócić się zaciekle, a twoja decyzja nie rozwiązała sporu. Spróbuj ponownie!"
       );
     }
   };
@@ -75,14 +75,14 @@ export default function Antique_solomon() {
       <div className='ml-2'>
         <div className='bg-white rounded-lg'>
           <button onClick={() => makeDecision('Give the child to the woman on the left')}>
-            Give child to the woman on the left
+          Daj dziecko kobiecie po lewej stronie.
           </button>
         </div>
         <br />
         <div>
           <div className='bg-white rounded-lg'>
             <button onClick={() => makeDecision('Give the child to the woman on the right')}>
-              Give child to the woman on the right
+            Daj dziecko kobiecie po prawej stronie.
             </button>
           </div>
         </div>
@@ -90,7 +90,7 @@ export default function Antique_solomon() {
         <div>
           <div className='bg-white rounded-lg'>
             <button onClick={() => makeDecision('Give half of the child to each woman')}>
-              Give half of the child to each woman
+            Daj połowę dziecka każdej kobiecie.
             </button>
           </div>
         </div>
@@ -100,8 +100,8 @@ export default function Antique_solomon() {
       <div 
         className="picture_moms mother-left" 
         onClick={() => openPopup(
-          "Sad Woman",
-          "This woman looks heartbroken but claims the child is hers."
+          "Smutna kobieta",
+          "Ta kobieta wygląda na załamana, ale twierdzi, że dziecko jest jej."
         )}
       >
         <img src={woman_sad} alt="Sad woman" />
@@ -109,8 +109,8 @@ export default function Antique_solomon() {
       <div 
         className="picture_moms mother-right" 
         onClick={() => openPopup(
-          "Woman with Baby",
-          "This woman is holding the baby and insists it is hers."
+          "Kobieta z dzieckiem",
+          "Ta kobieta trzyma dziecko i upiera się, że to jej."
         )}
       >
         <img src={woman_with_baby} alt="Woman with baby" />

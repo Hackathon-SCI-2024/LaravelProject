@@ -18,7 +18,7 @@ export default function Antique({ setPuzzle }) {
 					animate={{ opacity: 1, scale: 1, rotate: 0 }}
 					transition={{ duration: 1, ease: "easeOut" }}
 				>
-					Step into the Antique Era
+					Wejdź do ery antyku
 				</motion.h1>
 
 				{/* Description */}
@@ -29,8 +29,7 @@ export default function Antique({ setPuzzle }) {
 					transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
 					style={{ lineHeight: "1.8", maxWidth: "75%", margin: "0 auto" }}
 				>
-					Travel back to the age of empires, philosophers, and wonders of the ancient world. Uncover stories
-					written on scrolls, carved in stone, and told through timeless art. The adventure awaits!
+					Przenieś się w czasie do epoki imperiów, filozofów i cudów starożytnego świata. Odkryj historie zapisane na zwojach, wyryte w kamieniu i opowiedziane przez ponadczasową sztukę. Przygoda czeka!
 				</motion.p>
 
 				{/* Start Button */}
@@ -52,7 +51,7 @@ export default function Antique({ setPuzzle }) {
 					}}
 					onClick={() => setPuzzle(6)}
 				>
-					Start Exploring
+					Zacznij odkrywać
 				</motion.button>
 			</div>
 		</div>

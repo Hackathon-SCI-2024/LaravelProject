@@ -19,7 +19,7 @@ export default function War({ setPuzzle }) {
 					animate={{ opacity: 1, scale: 1 }}
 					transition={{ duration: 1, ease: "easeOut" }}
 				>
-					Survive the 20th Century Wars
+					  	Przetrwaj wojny XX wieku
 				</motion.h1>
 
 				{/* Description */}
@@ -35,9 +35,7 @@ export default function War({ setPuzzle }) {
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ delay: 0.5, duration: 1, ease: "easeOut" }}
 				>
-					Relive the defining moments of the 20th century, from the trenches of World War I to the battlefields
-					of World War II. Experience the bravery, sacrifice, and resilience of those who fought to shape our
-					modern world. Will you rise to the challenge?
+					Przeżyj na nowo kluczowe momenty XX wieku, od okopów I wojny światowej po pola bitew II wojny światowej. Doświadcz odwagi, poświęcenia i wytrwałości tych, którzy walczyli, aby ukształtować nasz współczesny świat. Czy podejmiesz wyzwanie?
 				</motion.p>
 
 				{/* Start Button */}
@@ -59,7 +57,7 @@ export default function War({ setPuzzle }) {
 					}}
 					onClick={() => setPuzzle(14)}
 				>
-					Enter the Battlefield
+					Wejdź na pole bitwy
 				</motion.button>
 			</div>
 		</div>
