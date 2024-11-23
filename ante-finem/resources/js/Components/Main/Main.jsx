@@ -9,6 +9,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import Prehistoric from "../Prehistoric/Prehistoric";
 import Antique from "../Antique/Antique";
 import Medieval from "../Medieval/Medieval";
+import Baghdad from "../Medieval/Baghdad/Baghdad";
 import War from "../War/War";
 import Home from "./Home";
 import Slider from "./Slider";
@@ -36,7 +37,7 @@ export default function Main() {
 		"",
 		"",
 		<Medieval />,
-		"",
+		<Baghdad />,
 		"",
 		"",
 		<War />,
@@ -44,7 +45,7 @@ export default function Main() {
 		"",
 		"",
 	];
-	const puzzleImges = ["", prehistoricImage, "", "", "", RomeImage, "", "", "", BaghdadImage, "", "", "", warImage, "", "", ""];
+	const puzzleImges = ["", prehistoricImage, "", "", "", RomeImage, "", "", "", "", BaghdadImage, "", "", warImage, "", "", ""];
 
 	return (
 		<div className="bg-cover bg-center w-screen min-h-screen flex flex-col" style={{ backgroundImage: `url(${puzzleImges[puzzle]})` }}>
