@@ -5,20 +5,8 @@ import solomon from './../../../../assets/antiquity/solomon.png';
 import solomon_popup from './../../../../assets/antiquity/solomon_popup.png';
 import woman_with_baby from './../../../../assets/antiquity/woman_child.png';
 import woman_sad from './../../../../assets/antiquity/woman_sad.png';
+import Popup from './../Main/Popup.jsx';
 
-const Popup = ({ title, content, onClose }) => {
-  return (
-    <div className="popup-overlay">
-      <div className="popup-content">
-        <div className="flex">
-          <h2 className="hello_solomon"><b>{title}</b></h2>
-        </div>
-        <p>{content}</p>
-        <button onClick={onClose}>Close</button>
-      </div>
-    </div>
-  );
-};
 
 export default function Antique_solomon() {
   const [showPopup, setShowPopup] = useState(false);
@@ -68,12 +56,13 @@ export default function Antique_solomon() {
     <div className="antique-container">
       {/* Show popup if active */}
       {showPopup && (
-        <Popup 
-          title={popupContent.title} 
-          content={popupContent.content} 
-          onClose={closePopup} 
-        />
-      )}
+  <Popup 
+    title={popupContent?.title} 
+    content={popupContent?.content} 
+    onClose={closePopup} 
+  />
+)}
+
 
       {/* Solomon in the center */}
       <div className="picture_solomon">

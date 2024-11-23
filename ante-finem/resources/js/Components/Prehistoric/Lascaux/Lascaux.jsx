@@ -6,7 +6,7 @@ import lascaux_4 from './../../../../../assets/prehistory/lascaux_4.jpg';
 import lascaux_5 from './../../../../../assets/prehistory/lascaux_5.jpg';
 import lascaux_6 from './../../../../../assets/prehistory/lascaux_6.jpg';
 import questionMark from "./../../../../../assets/prehistory/question-fill.png"
-
+import Popup from '../../Main/Popup.jsx';
 // Funkcja do generowania pustej tablicy dla puzzle 2x3
 const generatePuzzle = () => {
   const rows = 2; // Wiersze
@@ -21,19 +21,7 @@ const generatePuzzle = () => {
   }
   return numbers;
 };
-const Popup = ({ title, content, onClose }) => {
-  return (
-    <div className="popup-overlay">
-      <div className="popup-content">
-        <div className="flex">
-          <h2 className="popup_won"><b>{title}</b></h2>
-        </div>
-        <p>{content}</p>
-        <button onClick={onClose}>Close</button>
-      </div>
-    </div>
-  );
-};
+
 const Lascaux = () => {
   const rows = 2;
   const cols = 3;
