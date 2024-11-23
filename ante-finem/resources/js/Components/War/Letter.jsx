@@ -98,9 +98,10 @@ export default function Letter() {
 	};
 
 	return (
+		
 		<div className="war-container">
 			<div className="letter-container">
-				<img src={letter} alt="Letter" className="letter" />
+				<img src={letter} alt="Letter" className="letter blur-[2px]" />
 				<div className="absolute w-[50vw] p-[4rem] top-0">
 					<div className="hints-container">
 						<Hints />
