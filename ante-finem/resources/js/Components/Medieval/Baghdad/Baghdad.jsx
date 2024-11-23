@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { evaluate } from 'mathjs';
 import paperSheet from "./../../../../../assets/medieval/arab_paper.jpg"
 import infoImage from "./../../../../../assets/medieval/info.png";
+import Popup from "../../Main/Popup";
 
 export default function Baghdad() {
     const greekAlphabet = [
@@ -56,11 +57,11 @@ export default function Baghdad() {
       }
     
       const [letter1, setLetter1] = useState(generateRandomLetter());
-      const letterIndex1 = (greekAlphabet.indexOf(letter1) + 1).toString();
+      let letterIndex1 = (greekAlphabet.indexOf(letter1) + 1).toString();
       const [letter2, setLetter2] = useState(generateRandomLetter());
-      const letterIndex2 = (greekAlphabet.indexOf(letter2) + 1).toString();
+      let letterIndex2 = (greekAlphabet.indexOf(letter2) + 1).toString();
       const [letter3, setLetter3] = useState(generateRandomLetter());
-      const letterIndex3 = (greekAlphabet.indexOf(letter3) + 1).toString();
+      let letterIndex3 = (greekAlphabet.indexOf(letter3) + 1).toString();
 
       const [operation1, setOperation1] = useState(generateRandomOperation());
       const [operation2, setOperation2] = useState(generateRandomOperation());
@@ -68,6 +69,7 @@ export default function Baghdad() {
 
       const [inputText, setText] = useState("");
       const [description, setDescription] = useState(false);
+      const [popup, setPopup] = useState(false);
 
       const [shuffledIndoArabicDigits, setShuffledIndoArabicDigits] = useState([]);
 
@@ -83,7 +85,7 @@ export default function Baghdad() {
         console.log(cleanAndNormalize(text) === cleanAndNormalize(correct + "=" + toIndoArabic(result.toString())));
         if(cleanAndNormalize(text) === cleanAndNormalize(correct + "=" + toIndoArabic(result.toString())))
         {
-            setColor('#AFE1AF');
+            setPopup(true);
         }
       }
 
@@ -104,6 +106,20 @@ export default function Baghdad() {
         }, []);
 
         const [color, setColor] = useState('none');
+
+        const regenerate = () => {
+          setLetter1(generateRandomLetter());
+          letterIndex1 = (greekAlphabet.indexOf(letter1) + 1).toString();
+          setLetter2(generateRandomLetter());
+          letterIndex2 = (greekAlphabet.indexOf(letter2) + 1).toString();
+          setLetter3(generateRandomLetter());
+          letterIndex3 = (greekAlphabet.indexOf(letter3) + 1).toString();
+
+          setOperation1(generateRandomOperation());
+          setOperation2(generateRandomOperation());
+
+          setShuffledIndoArabicDigits(shuffleArray([...indoArabicDigits]));
+        }
     
 	return (
 		<div id="background" className="w-screen h-screen flex justify-center items-center">
@@ -153,6 +169,17 @@ export default function Baghdad() {
 
             </div>
 
+            { 
+              popup && (
+                <Popup 
+                title="Mubarak!" 
+                content="Wykazałeś szczególną wiedzą matematyczną i lingwistyczną! Powodzenia w przyszłych epokach!"
+                onClose={() => {setColor('none'); setText(""); setPopup(false); regenerate()}}
+                >
+                </Popup>
+
+              )
+            }
 		</div>
 	);
 }
