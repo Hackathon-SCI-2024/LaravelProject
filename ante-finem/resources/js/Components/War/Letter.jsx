@@ -148,6 +148,7 @@ export default function Letter() {
                 <Popup
                     title="Gratulacje!"
                     content="Wszystkie słowa zostały poprawnie odgadnięte!"
+                    bgColor={"bg-orange-200"}
                     onClose={closePopup}
                 />
             )}
