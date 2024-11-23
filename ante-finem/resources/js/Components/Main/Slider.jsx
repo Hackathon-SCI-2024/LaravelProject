@@ -10,7 +10,6 @@ const SliderTimeline = ({ puzzle, setPuzzle }) => {
 
 	return (
 		<div className="absolute bottom-5 w-full flex flex-col items-center">
-			{/* Timeline */}
 			<div className="relative w-full max-w-lg mt-6">
 				{/* Line */}
 				<div className="absolute w-full h-1 bg-slate-900 top-1/2 transform -translate-y-1/2"></div>
@@ -61,6 +60,7 @@ const SliderTimeline = ({ puzzle, setPuzzle }) => {
 										} hover:scale-110 hover:shadow-sm hover:border-blue-300 text-white bg-slate-700`}
 										onClick={() => setPuzzle(era.startNumber + taskIndex + 1)}
 										aria-label={`Switch to Task ${taskIndex + 1} of ${era.title}`}
+										disabled={taskIndex === 1 || taskIndex === 2}
 										style={{
 											transition: "transform 0.4s ease-out, opacity 0.3s ease-in-out, box-shadow 0.2s ease-in-out",
 											transform:
