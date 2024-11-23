@@ -14,12 +14,13 @@ import War from "../War/War";
 import Home from "./Home";
 import Slider from "./Slider";
 import Letter from "../War/Letter";
+import Antique_solomon from "../Antique/Antique_solomon";
 
 // ---
 // Images imports
 
 import prehistoricImage from "../../../../assets/prehistory/prehistory_background.jpg";
-import RomeImage from "../../../../assets/antiquity/rome_background.jpg";
+import RomeImage from "../../../../assets/antiquity/egypt_background.jpg";
 import BaghdadImage from "../../../../assets/medieval/baghdad_backgroundjpg.jpg";
 import warImage from "../../../../assets/20th_century/war_background.jpg";
 import war2Image from "../../../../assets/20th_century/war_background2.jpg";
@@ -35,7 +36,7 @@ export default function Main() {
 		"",
 		"",
 		<Antique setPuzzle={setPuzzle}/>,
-		"",
+		<Antique_solomon />,
 		"",
 		"",
 		<Medieval />,

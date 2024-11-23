@@ -1,0 +1,33 @@
+/* Make sure the container takes up the full screen size */
+.antique-container {
+  width: 100%;
+  height: 100vh; /* 100% of the viewport height */
+  background-image: url('./../../../../assets/antiquity/solomon_background.jpg');
+  background-size: cover; /* Ensures the image covers the entire container */
+  background-position: center; /* Centers the background image */
+  display: flex;
+  align-items: center; /* Centers content vertically */
+  justify-content: flex-start; /* Aligns content to the left */
+  padding-left: 20%; /* Optional: Add some spacing from the left edge */
+}
+
+/* Styling for the picture container */
+.picture_solomon {
+  width: 12vw;
+  height: 12vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.picture_solomon img {
+  border-radius: 20%; /* Creates the circular shape */
+  
+}
+
+/* Optional: Add text or other elements and position them beside the image */
+.antique-container h1 {
+  color: white;
+  font-size: 3rem;
+  margin-left: 1rem; /* Adds spacing between the image and text */
+}

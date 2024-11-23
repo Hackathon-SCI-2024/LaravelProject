@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'; // Animation library
 
 export default function Prehistoric({ setPuzzle }) {
 	return (
+		
 		<div
 			className="relative h-screen flex flex-col justify-center items-center bg-cover bg-center px-6 md:px-20"
 		>
