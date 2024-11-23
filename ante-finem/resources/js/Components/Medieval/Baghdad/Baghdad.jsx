@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";  
 import { evaluate } from 'mathjs';
 import paperSheet from "./../../../../../assets/medieval/arab_paper.jpg"
+import infoImage from "./../../../../../assets/medieval/info.png";
 
 export default function Baghdad() {
     const greekAlphabet = [
@@ -53,13 +54,6 @@ export default function Baghdad() {
       function cleanAndNormalize(str) {
         return str.replace(/[\u202A-\u202C]/g, "").normalize();
       }
-
-      const shuffleArray = (array) => {
-        for (let i = array.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          [array[i], array[j]] = [array[j], array[i]];
-        }
-      };
     
       const [letter1, setLetter1] = useState(generateRandomLetter());
       const letterIndex1 = (greekAlphabet.indexOf(letter1) + 1).toString();
@@ -73,48 +67,56 @@ export default function Baghdad() {
 
 
       const [inputText, setText] = useState("");
+      const [description, setDescription] = useState(false);
 
+      const [shuffledIndoArabicDigits, setShuffledIndoArabicDigits] = useState([]);
+
+      const result = evaluate(letterIndex1 + operation1 + letterIndex2 + operation2 + letterIndex3);
+      const correct = toIndoArabic(letterIndex1) + "\u202C" + operation1 + toIndoArabic(letterIndex2) + "\u202C" + operation2 + toIndoArabic(letterIndex3)
+    
       const addDigit = (digit) => {
         const text = inputText + "\u202A" + digit.indoArabic;
         setText(text)
         console.log("in iscorrect");
-        console.log(correct);
-        console.log(text);
-        console.log(cleanAndNormalize(text) === cleanAndNormalize(correct));
-        if(cleanAndNormalize(text) === cleanAndNormalize(correct))
+        console.log(correct + "=" + toIndoArabic(result.toString()));
+        console.log(cleanAndNormalize(text));
+        console.log(cleanAndNormalize(text) === cleanAndNormalize(correct + "=" + toIndoArabic(result.toString())));
+        if(cleanAndNormalize(text) === cleanAndNormalize(correct + "=" + toIndoArabic(result.toString())))
         {
             setColor('#AFE1AF');
         }
       }
 
-      const result = evaluate(letterIndex1 + operation1 + letterIndex2 + operation2 + letterIndex3);
-      const correct = toIndoArabic(letterIndex1) + "\u202C" + operation1 + toIndoArabic(letterIndex2) + "\u202C" + operation2 + toIndoArabic(letterIndex3)
-    
-      const handleButton = (digit) => {
-        addDigit(digit);
-        isCorrect();
-      }
+      const shuffleArray = (array) => {
+        console.log("shuffling");
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array; // Ensure the shuffled array is returned
+      };
+
+      const infoText = "Złoty wiek islamu zaowocował znacznym postępem w wielu dziedzinach, była to między innymi matematyka i tłumaczenia. W efekcie zawód tłumacza stał się niezwykle prestiżowy i lukratywny, nieustannie było też na niego zapotrzebowanie. Twoim zadaniem jest sprawdzenie, którymi z kolei w alfabecie są podane litery greckie oraz zapisać za ich pomocą równanie i jego wynik cyframi indo-arabskimi";
 
       useEffect(() => {
-        shuffleArray(indoArabicDigits);
-        console.log(correct)
+        console.log(correct);
+        setShuffledIndoArabicDigits(shuffleArray([...indoArabicDigits]));
         }, []);
 
         const [color, setColor] = useState('none');
-
-        const isCorrect = (e) => {
-            console.log("in iscorrect");
-            console.log(correct);
-            console.log(inputText);
-            console.log(cleanAndNormalize(inputText) === cleanAndNormalize(correct));
-            if(cleanAndNormalize(inputText) === cleanAndNormalize(correct))
-            {
-                setColor('#AFE1AF');
-            }
-        }
     
 	return (
 		<div id="background" className="w-screen h-screen flex justify-center items-center">
+      <div className="top-5 left-5 absolute">
+        <button onClick={() => setDescription(!description)}>
+          <img src={infoImage} className="rounded-full w-16 h-16" />
+        </button>
+        {
+          description ? (
+            <div className="w-40 text-xs bg-white/60 p-2 rounded-md">{infoText}</div>
+          ) : (<div />)
+        }
+      </div>
 
             <div id="sheet" className="w-[750px] h-[400px] bg-[rgba(254,212,163,0.85)] border-solid border-8 rounded-xl border-[rgb(99,63,31)] flex justify-center items-center gap-10 flex-col" style={{boxShadow: '0 5px 10px 5px rgba(67,20,7,0.8)'}}>
 
@@ -128,13 +130,13 @@ export default function Baghdad() {
 
                 <div className="flex gap-5">
                   <div className="w-10"></div>
-                  <input type="text" value={inputText} className="text-left appearance-none bg-transparent border-solid border-2 border-transparent border-b-orange-950 w-[400px] outline-none text-xl placeholder:text-[rgb(190,145,100)]" style={{direction: 'rtr', unicodeBidi: 'plaintext', backgroundColor: color}} placeholder="Enter your answer using keyboard below."></input>
-                  <button className="border-solid border-2 border-orange-950 rounded-xl w-10 [-webkit-text-stroke:0.3px]" ><i className="bi bi-backspace"></i></button>
+                  <input type="text" value={inputText} className="text-left appearance-none bg-transparent border-solid border-2 border-transparent border-b-orange-950 w-[400px] outline-none text-xl placeholder:text-[rgb(190,145,100)]" style={{direction: 'rtr', unicodeBidi: 'plaintext', backgroundColor: color}} placeholder="Wpisz tutaj równanie"></input>
+                  <button className="border-solid border-2 border-orange-950 rounded-xl w-10 [-webkit-text-stroke:0.3px]" onClick={() => setText("")}><i className="bi bi-backspace"></i></button>
                 </div>
 
                 <div id="digits" className="flex gap-2">
                     {
-                        indoArabicDigits.map(((digit, index) => (
+                        shuffledIndoArabicDigits.map(((digit, index) => (
                             <button className="border-solid border-2 border-orange-950 rounded-xl w-8" key={index} onClick={() => addDigit(digit)}>{digit.indoArabic}</button>
                         )))
                     }
@@ -145,7 +147,8 @@ export default function Baghdad() {
                         operations.map(((operation, index) => (
                             <button className="border-solid border-2 border-orange-950 rounded-xl w-8" key={index} onClick={() => setText(prevText => prevText + "\u202C" + operation)}>{operation}</button>
                         )))
-                    }
+                      }
+                      <button className="border-solid border-2 border-orange-950 rounded-xl w-8" onClick={() => setText(prevText => prevText + "\u202C" + '=')} > = </button>
                 </div>
 
             </div>
