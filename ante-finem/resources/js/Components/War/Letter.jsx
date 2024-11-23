@@ -83,13 +83,19 @@ export default function Letter() {
 		);
 	};
 
+	const [showPopup, setShowPopup] = useState(false);
+
 	useEffect(() => {
 		if (areAllCorrect()) {
 			setTimeout(() => {
-				alert("Wszystkie słowa zostały poprawnie odgadnięte!");
+				setShowPopup(true); // Show the popup when all words are correct
 			}, 100);
 		}
 	}, [inputs]);
+
+	const closePopup = () => {
+		setShowPopup(false); // Close the popup when the user clicks the "Close" button
+	};
 
 	return (
 		<div className="war-container">
@@ -106,6 +112,7 @@ export default function Letter() {
 								<br />
 								{filledIndices.includes(index) || decodedWords[index] === "4:00" || decodedWords[index] === "20:00" ? (
 									<span
+										className="p_other_text"
 										style={{
 											display: "block",
 											marginTop: "5px",
@@ -119,6 +126,7 @@ export default function Letter() {
 									</span>
 								) : isCorrect(index) ? (
 									<span
+										className="p_other_text"
 										style={{
 											display: "block",
 											marginTop: "5px",
@@ -135,6 +143,7 @@ export default function Letter() {
 								) : (
 									<input
 										type="text"
+										className="p_other_text"
 										value={inputs[index]}
 										onChange={(e) => handleInputChange(index, e.target.value)}
 										style={{
@@ -152,6 +161,18 @@ export default function Letter() {
 							</span>
 						))}
 					</p>
+
+					{/* Custom Popup */}
+					{showPopup && (
+						<div className="popup-container">
+							<div className="popup-content">
+								<p className="popup-text">Gratulacje! Wszystkie słowa zostały poprawnie odgadnięte!</p>
+								<button className="popup-close" onClick={closePopup}>
+									Zamknij
+								</button>
+							</div>
+						</div>
+					)}
 				</div>
 			</div>
 		</div>
