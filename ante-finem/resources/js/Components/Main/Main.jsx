@@ -26,6 +26,7 @@ import BaghdadImage from "../../../../assets/medieval/baghdad_backgroundjpg.jpg"
 import warImage from "../../../../assets/20th_century/war_background.jpg";
 import war2Image from "../../../../assets/20th_century/war_background2.jpg";
 import lascauxImage from "../../../../assets/prehistory/lascaux_background.jpg";
+import medievalImage from "../../../../assets/medieval/medieval_background.jpg";
 
 // ---
 
@@ -41,16 +42,16 @@ export default function Main() {
 		<Antique_solomon />,
 		"",
 		"",
-		<Medieval />,
+		<Medieval setPuzzle={setPuzzle}/>,
 		<Baghdad />,
 		"",
 		"",
-		<War />,
+		<War setPuzzle={setPuzzle}/>,
 		<Letter />,
 		"",
 		"",
 	];
-	const puzzleImges = ["", prehistoricImage, lascauxImage, "", "", RomeImage, "", "", "", "", BaghdadImage, "", "", war2Image, warImage, "", ""];
+	const puzzleImges = ["", prehistoricImage, lascauxImage, "", "", RomeImage, "", "", "", medievalImage, BaghdadImage, "", "", war2Image, warImage, "", ""];
 
 	return (
 		<div className="bg-cover bg-center w-screen min-h-screen flex flex-col" style={{ backgroundImage: `url(${puzzleImges[puzzle]})` }}>

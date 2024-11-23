@@ -11,7 +11,7 @@ const Popup = ({ title, content, img_popup, onClose }) => {
                                 />}
         <h2><b>{title}</b></h2>
         <p>{content}</p>
-        
+
         <button onClick={onClose}>Close</button>
       </div>
     </div>

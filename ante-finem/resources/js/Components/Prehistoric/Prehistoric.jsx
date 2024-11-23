@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'; // Animation library
 
 export default function Prehistoric({ setPuzzle }) {
 	return (
-		
+
 		<div
 			className="relative h-screen flex flex-col justify-center items-center bg-cover bg-center px-6 md:px-20"
 		>
@@ -39,9 +39,9 @@ export default function Prehistoric({ setPuzzle }) {
 					className="px-8 py-3 bg-orange-500 mt-12 text-yellow-100 text-lg font-semibold rounded-full prehistoric-font focus:outline-none focus:ring-4 focus:ring-orange-300"
 					initial={{ scale: 0.75, opacity: 0 }}
 					animate={{ scale: 1, opacity: 1 }}
-					whileHover={{ scale: 1.15, boxShadow: "0px 8px 20px rgba(255, 165, 0, 0.8)" }}
+					whileHover={{ scale: 1.15, boxShadow: "0px 8px 20px rgba(255, 165, 0, 0.5)" }}
 					whileTap={{ scale: 0.95 }}
-					transition={{ delay: 1, type: "spring", stiffness: 200, damping: 10 }}
+					transition={{ delay: 0, type: "spring", stiffness: 200, damping: 10 }}
 					onClick={() => setPuzzle(2)}
 				>
 					Start Exploring

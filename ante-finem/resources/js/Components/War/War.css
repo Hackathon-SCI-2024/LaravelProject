@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Oswald:wght@200..700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 .p_text {
     font-family: "Dancing Script", cursive;
     font-weight: 400;
@@ -190,4 +189,11 @@
     background: rgba(0, 0, 0, 0.2);
     filter: blur(5px);
     z-index: 999;
+}
+.font-oswald {
+    font-family: 'Oswald', sans-serif;
+}
+
+.font-dancing-script {
+    font-family: 'Dancing Script', cursive;
 }
