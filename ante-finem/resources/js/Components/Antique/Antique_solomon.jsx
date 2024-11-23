@@ -48,12 +48,22 @@ export default function Antique_solomon() {
   };
 
   const makeDecision = (decision) => {
-    alert(`Solomon's decision: ${decision}`);
+    if (decision === 'Give half of the child to each woman') {
+      openPopup(
+        "Wise Decision!",
+        "The true mother pleaded to save the child, revealing her identity. Wisdom has prevailed!"
+      );
+    } else {
+      openPopup(
+        "Argument Breaks Out!",
+        "The women started arguing fiercely, and your decision failed to settle the dispute. Try again!"
+      );
+    }
   };
 
   return (
     <div className="antique-container">
-      {/* Popup display */}
+      {/* Show popup if active */}
       {showPopup && (
         <Popup 
           title={popupContent.title} 
@@ -69,22 +79,26 @@ export default function Antique_solomon() {
 
       {/* Decision buttons */}
       <div className='ml-2'>
-        <div>
+        <div className='bg-white rounded-lg'>
           <button onClick={() => makeDecision('Give the child to the woman on the left')}>
             Give child to the woman on the left
           </button>
         </div>
         <br />
         <div>
-          <button onClick={() => makeDecision('Give the child to the woman on the right')}>
-            Give child to the woman on the right
-          </button>
+          <div className='bg-white rounded-lg'>
+            <button onClick={() => makeDecision('Give the child to the woman on the right')}>
+              Give child to the woman on the right
+            </button>
+          </div>
         </div>
         <br />
         <div>
-          <button onClick={() => makeDecision('Give half of the child to each woman')}>
-            Give half of the child to each woman
-          </button>
+          <div className='bg-white rounded-lg'>
+            <button onClick={() => makeDecision('Give half of the child to each woman')}>
+              Give half of the child to each woman
+            </button>
+          </div>
         </div>
       </div>
 

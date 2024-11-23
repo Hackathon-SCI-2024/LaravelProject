@@ -84,22 +84,41 @@ export default function Letter() {
 	};
 
 	const [showPopup, setShowPopup] = useState(false);
+	const [showInitPopup, setShowInitPopup] = useState(true); // State for initial popup
 
 	useEffect(() => {
 		if (areAllCorrect()) {
 			setTimeout(() => {
-				setShowPopup(true); // Show the popup when all words are correct
+				setShowPopup(true); // Show the completion popup when all words are correct
 			}, 100);
 		}
 	}, [inputs]);
 
 	const closePopup = () => {
-		setShowPopup(false); // Close the popup when the user clicks the "Close" button
+		setShowPopup(false); // Close the completion popup
+	};
+
+	const closeInitPopup = () => {
+		setShowInitPopup(false); // Close the initial popup
 	};
 
 	return (
-		
 		<div className="war-container">
+			{/* Initial Popup */}
+			{showInitPopup && (
+				<div className="popup-container">
+					<div className="popup-content">
+						<p className="popup-text">
+							Jesteś w zespole osób, które muszą rozszyfrować szyfr Hitlera. Powodzenia! Cała Europa jest teraz w twoich rękach.
+						</p>
+						<button className="popup-close" onClick={closeInitPopup}>
+							Start
+						</button>
+					</div>
+				</div>
+			)}
+
+			{/* Main Letter and Inputs */}
 			<div className="letter-container">
 				<img src={letter} alt="Letter" className="letter blur-[2px]" />
 				<div className="absolute w-[50vw] p-[4rem] top-0">
@@ -163,7 +182,7 @@ export default function Letter() {
 						))}
 					</p>
 
-					{/* Custom Popup */}
+					{/* Completion Popup */}
 					{showPopup && (
 						<div className="popup-container">
 							<div className="popup-content">
