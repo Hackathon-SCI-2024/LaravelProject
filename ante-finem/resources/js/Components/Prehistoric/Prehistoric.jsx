@@ -19,7 +19,7 @@ export default function Prehistoric({ setPuzzle }) {
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.8 }}
 				>
-					Enter the Prehistoric World
+					Wkrocz w prehistorię
 				</motion.h1>
 
 				{/* Description */}
@@ -30,8 +30,8 @@ export default function Prehistoric({ setPuzzle }) {
 					transition={{ delay: 0.5, duration: 0.8 }}
 					style={{ lineHeight: "1.8", maxWidth: "70%", margin: "0 auto" }}
 				>
-					Venture into the dawn of humanity, where survival meant harnessing fire, carving tools from stone,
-					and leaving the first marks of culture in ancient caves. Let the journey begin!
+					Przenieś się do zarania ludzkości, gdzie przetrwanie determinowało okiełznanie ognia, wykonywanie narzędzi z kamienia
+					i pozostawienie pierwszych śladów kultury w pradawnych jaskiniach. Niech rozpocznie się podróż!
 				</motion.p>
 
 				{/* Start Button */}
@@ -44,7 +44,7 @@ export default function Prehistoric({ setPuzzle }) {
 					transition={{ delay: 0, type: "spring", stiffness: 200, damping: 10 }}
 					onClick={() => setPuzzle(2)}
 				>
-					Start Exploring
+					Zacznij przygodę
 				</motion.button>
 			</div>
 		</div>

@@ -22,7 +22,7 @@ export default function Medieval({ setPuzzle }) {
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.8 }}
 				>
-					Explore the Medieval World
+					Poznaj średniowiecze!
 				</motion.h1>
 
 				{/* Description */}
@@ -38,9 +38,9 @@ export default function Medieval({ setPuzzle }) {
 					animate={{ opacity: 1, x: 0 }}
 					transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
 				>
-					Step into a fascinating era that shaped Europe and the Middle East alike. From the bustling bazaars of
-					Baghdad to the majestic castles of Europe, the medieval world was a time of knights, scholars, and
-					adventurers. Experience a golden age of art, science, and valor!
+					Wkrocz do fascynującej epoki, która ukształtowała zarówno Europę, jak i Bliski Wschód. Od tętniących życiem bazarów
+					Bagdadu po majestatyczne zamki Europy. Średniowiecze było czasem rycerzy, uczonych i poszukiwaczy przygód.
+					Doświadcz złotego wieku sztuki, nauki i męstwa!
 				</motion.p>
 
 				{/* Start Button */}
@@ -62,7 +62,7 @@ export default function Medieval({ setPuzzle }) {
 					}}
 					onClick={() => setPuzzle(10)}
 				>
-					Start Your Quest
+					Rozpocznij zadanie
 				</motion.button>
 			</div>
 		</div>
