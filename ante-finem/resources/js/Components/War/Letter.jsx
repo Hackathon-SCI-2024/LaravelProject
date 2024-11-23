@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './War.css';
 import Hints from './Hints.jsx';
+
 export default function Letter_js() {
   const decodedWords = [
     "Rozpoczac", "ofensywe", "na", "froncie", "wschodnim", "o", "godzinie", "4:00",
@@ -62,13 +63,19 @@ export default function Letter_js() {
     );
   };
 
+  const [showPopup, setShowPopup] = useState(false);
+
   useEffect(() => {
     if (areAllCorrect()) {
-        setTimeout(() => {
-            alert('Wszystkie słowa zostały poprawnie odgadnięte!');
-        }, 100);
+      setTimeout(() => {
+        setShowPopup(true);  // Show the popup when all words are correct
+      }, 100);
     }
   }, [inputs]);
+
+  const closePopup = () => {
+    setShowPopup(false);  // Close the popup when the user clicks the "Close" button
+  };
 
   return (
     <div className='absolute w-[50vw] p-[4rem] top-0'>
@@ -82,6 +89,7 @@ export default function Letter_js() {
             <br />
             {filledIndices.includes(index) || decodedWords[index] === '4:00' || decodedWords[index] === '20:00' ? (
               <span 
+              className='p_other_text'
                 style={{ 
                   display: 'block', 
                   marginTop: '5px', 
@@ -96,6 +104,7 @@ export default function Letter_js() {
             ) : (
               isCorrect(index) ? (
                 <span 
+                className='p_other_text'
                   style={{ 
                     display: 'block', 
                     marginTop: '5px', 
@@ -112,6 +121,7 @@ export default function Letter_js() {
               ) : (
                 <input
                   type="text"
+                  className='p_other_text'
                   value={inputs[index]}
                   onChange={(e) => handleInputChange(index, e.target.value)}
                   style={{
@@ -130,6 +140,16 @@ export default function Letter_js() {
           </span>
         ))}
       </p>
+
+      {/* Custom Popup */}
+      {showPopup && (
+        <div className="popup-container">
+          <div className="popup-content">
+            <p className="popup-text">Gratulacje! Wszystkie słowa zostały poprawnie odgadnięte!</p>
+            <button className="popup-close" onClick={closePopup}>Zamknij</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
