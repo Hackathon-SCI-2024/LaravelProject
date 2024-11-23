@@ -116,7 +116,7 @@ export default function Baghdad() {
 	return (
 		<div id="background" className="w-screen h-screen flex justify-center items-center">
 
-            <div id="sheet" className="w-[50vw] h-[40vh] bg-[rgba(254,212,163,0.85)] border-solid border-8 rounded-xl border-[rgb(99,63,31)] flex justify-center items-center gap-10 flex-col" style={{boxShadow: '0 5px 10px 5px rgba(67,20,7,0.8)'}}>
+            <div id="sheet" className="w-[750px] h-[400px] bg-[rgba(254,212,163,0.85)] border-solid border-8 rounded-xl border-[rgb(99,63,31)] flex justify-center items-center gap-10 flex-col" style={{boxShadow: '0 5px 10px 5px rgba(67,20,7,0.8)'}}>
 
                 <div id="equation" style={{fontFamily: "monospace"}}>
                     <span className="font-serif text-6xl">{letter1}</span>
