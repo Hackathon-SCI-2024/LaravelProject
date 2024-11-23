@@ -21,7 +21,19 @@ const generatePuzzle = () => {
   }
   return numbers;
 };
-
+const Popup = ({ title, content, onClose }) => {
+  return (
+    <div className="popup-overlay">
+      <div className="popup-content">
+        <div className="flex">
+          <h2 className="popup_won"><b>{title}</b></h2>
+        </div>
+        <p>{content}</p>
+        <button onClick={onClose}>Close</button>
+      </div>
+    </div>
+  );
+};
 const Lascaux = () => {
   const rows = 2;
   const cols = 3;
@@ -90,8 +102,12 @@ const Lascaux = () => {
       </div>
     <div style={{ textAlign: 'center'}}>
       {isWinner ? (
-        <h2 style={{ color: 'green' }}>Gratulacje! Ułożyłeś puzzle!</h2>
-      ) : (
+          <Popup
+            title="Wygrałeś!"
+            content="Gratulacje! Rozwiązałeś zagadkę!"
+            onClose={() => setIsWinner(false)}
+          />
+        ) : (
         <div class="ml-[30vw] mt-[15vh]"
           style={{
             display: 'grid',

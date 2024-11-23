@@ -25,8 +25,8 @@ export default function Antique_solomon() {
   const [popupContent, setPopupContent] = useState(null);
   const [initPopup, setInitPopup] = useState(true); // State for initial popup
 
+  // UseEffect to show initial popup only on component mount
   useEffect(() => {
-    // Show the initial popup on component mount
     if (initPopup) {
       setPopupContent({
         title: "Hello Solomon!",
@@ -34,19 +34,22 @@ export default function Antique_solomon() {
       });
       setShowPopup(true);
     }
-  }, [initPopup]);
+  }, [initPopup]); // Dependency on initPopup ensures it runs only once during initial mount
 
+  // Close popup and set initPopup to false to prevent further initial popups
   const closePopup = () => {
     setShowPopup(false);
-    if (initPopup) setInitPopup(false); // Close initial popup
-    setPopupContent(null);
+    if (initPopup) setInitPopup(false); // Set to false to prevent future initial popups
+    setPopupContent(null); // Clear the content
   };
 
+  // Function to open any other popup with dynamic content
   const openPopup = (title, content) => {
     setPopupContent({ title, content });
     setShowPopup(true);
   };
 
+  // Decision making logic
   const makeDecision = (decision) => {
     if (decision === 'Give half of the child to each woman') {
       openPopup(
