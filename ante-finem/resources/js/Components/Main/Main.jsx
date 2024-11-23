@@ -15,6 +15,7 @@ import Home from "./Home";
 import Slider from "./Slider";
 import Letter from "../War/Letter";
 import Antique_solomon from "../Antique/Antique_solomon";
+import Lascaux from "../Prehistoric/Lascaux/Lascaux";
 
 // ---
 // Images imports
@@ -24,6 +25,7 @@ import RomeImage from "../../../../assets/antiquity/egypt_background.jpg";
 import BaghdadImage from "../../../../assets/medieval/baghdad_backgroundjpg.jpg";
 import warImage from "../../../../assets/20th_century/war_background.jpg";
 import war2Image from "../../../../assets/20th_century/war_background2.jpg";
+import lascauxImage from "../../../../assets/prehistory/lascaux_background.jpg";
 
 // ---
 
@@ -32,7 +34,7 @@ export default function Main() {
 	const puzzles = [
 		<Home setPuzzle={setPuzzle} />,
 		<Prehistoric setPuzzle={setPuzzle} />,
-		"",
+		<Lascaux></Lascaux>,
 		"",
 		"",
 		<Antique setPuzzle={setPuzzle}/>,
@@ -48,7 +50,7 @@ export default function Main() {
 		"",
 		"",
 	];
-	const puzzleImges = ["", prehistoricImage, "", "", "", RomeImage, "", "", "", "", BaghdadImage, "", "", war2Image, warImage, "", ""];
+	const puzzleImges = ["", prehistoricImage, lascauxImage, "", "", RomeImage, "", "", "", "", BaghdadImage, "", "", war2Image, warImage, "", ""];
 
 	return (
 		<div className="bg-cover bg-center w-screen min-h-screen flex flex-col" style={{ backgroundImage: `url(${puzzleImges[puzzle]})` }}>
