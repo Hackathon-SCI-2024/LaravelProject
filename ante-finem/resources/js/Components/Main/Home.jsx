@@ -21,9 +21,8 @@ export default function Home({ setPuzzle }) {
 					className="w-[50%] h-full bg-slate-800 flex justify-center items-center"
 					style={{ boxShadow: "60px 0px 50px 60px rgb(30,41,59)" }}
 				>
-					{" "}
-					{/*  */}
 					<div className="flex flex-col gap-10 text-slate-50">
+						<h1 className="text-8xl mb-20">Past<span className="text-blue-500">Q</span>uiz</h1>
 						<div className="h-2 w-full relative">
 							<span className="block bg-white w-full h-[1px]"></span>
 							<div
