@@ -12,6 +12,7 @@ import Medieval from "../Medieval/Medieval";
 import War from "../War/War";
 import Home from "./Home";
 import Slider from "./Slider";
+import Letter from "../War/Letter";
 
 // ---
 // Images imports
@@ -20,6 +21,7 @@ import prehistoricImage from "../../../../assets/prehistory/prehistory_backgroun
 import RomeImage from "../../../../assets/antiquity/rome_background.jpg";
 import BaghdadImage from "../../../../assets/medieval/baghdad_backgroundjpg.jpg";
 import warImage from "../../../../assets/20th_century/war_background.jpg";
+import war2Image from "../../../../assets/20th_century/war_background2.jpg";
 
 // ---
 
@@ -40,11 +42,11 @@ export default function Main() {
 		"",
 		"",
 		<War />,
-		"",
+		<Letter />,
 		"",
 		"",
 	];
-	const puzzleImges = ["", prehistoricImage, "", "", "", RomeImage, "", "", "", BaghdadImage, "", "", "", warImage, "", "", ""];
+	const puzzleImges = ["", prehistoricImage, "", "", "", RomeImage, "", "", "", BaghdadImage, "", "", "", war2Image, warImage, "", ""];
 
 	return (
 		<div className="bg-cover bg-center w-screen min-h-screen flex flex-col" style={{ backgroundImage: `url(${puzzleImges[puzzle]})` }}>

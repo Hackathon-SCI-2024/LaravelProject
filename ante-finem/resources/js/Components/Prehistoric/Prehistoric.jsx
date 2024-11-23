@@ -23,7 +23,7 @@ export default function Prehistoric({ setPuzzle }) {
 
 				{/* Description */}
 				<motion.p
-					className="text-base md:text-xl mb-8 prehistoric-font text-yellow-200 text-opacity-75"
+					className="text-base p_coolFont md:text-xl mb-8 prehistoric-font text-yellow-200 text-opacity-75"
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
 					transition={{ delay: 0.5, duration: 0.8 }}
