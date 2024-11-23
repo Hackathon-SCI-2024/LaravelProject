@@ -28,11 +28,11 @@ export default function Home({ setPuzzle }) {
 							<span className="block bg-white w-full h-[1px]"></span>
 							<div
 								id="homeTimestamp1"
-								className="absolute w-full h-[30px] [transform:translateY(-50%)] border-solid border-2 border-transparent border-r-slate-50"
+								className="absolute w-full h-[30px] [transform:translateY(-50%)] border-solid border-2 border-transparent border-r-slate-50 opacity-0"
 							></div>
 							<div
 								id="homeTimestamp2"
-								className="absolute w-full h-[30px] [transform:translateY(-50%)] border-solid border-2 border-transparent border-r-slate-50"
+								className="absolute w-full h-[30px] [transform:translateY(-50%)] border-solid border-2 border-transparent border-r-slate-50 opacity-0"
 							></div>
 						</div>
 						<h2 className="text-5xl">Dive into history, now.</h2>
