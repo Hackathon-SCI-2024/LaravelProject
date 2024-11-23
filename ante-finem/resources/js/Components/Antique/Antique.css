@@ -1,15 +1,3 @@
-.antique-container {
-  width: 100%;
-  height: 100vh; /* Full viewport height */
-  background-image: url('./../../../../assets/antiquity/solomon_background.jpg');
-  background-size: cover; /* Ensures the image covers the entire container */
-  background-position: center; /* Centers the background image */
-  display: flex;
-  justify-content: center; /* Centers Solomon horizontally */
-  align-items: center; /* Centers Solomon vertically */
-  position: relative; /* Allows absolute positioning of child elements */
-}
-
 .popup_solomon{
   width: 10vw;
   height: 10vh;
@@ -18,42 +6,6 @@
   top: 0;
 
 }
-.picture_solomon {
-  width: 15vw;
-  height: 10vh;
-  display: flex;
-  margin-top: 7%;
-  margin-left: 19%;
-  justify-content: center;
-  align-items: center;
-  position: relative; /* Keeps Solomon's positioning relative for stacking */
-  z-index: 2; /* Ensures Solomon stays on top */
-}
 .hello_solomon{
   padding-right: -50rem;
-}
-.picture_solomon img {
-  border-radius: 20%; /* Optional: Rounded corners */
-  max-width: 100%; /* Makes the image responsive */
-}
-
-.picture_moms {
-  width: 10vw;
-  height: auto;
-  position: absolute; /* Positions women relative to the container */
-  bottom: 10%; /* Places them lower on the page */
-  z-index: 1; /* Places women below Solomon */
-}
-
-.picture_moms img {
-  max-width: 100%;
-}
-
-/* Position the women on either side of Solomon */
-.mother-left {
-  left: 30%; /* Adjust for spacing */
-}
-
-.mother-right {
-  right: 30%; /* Adjust for spacing */
 }
