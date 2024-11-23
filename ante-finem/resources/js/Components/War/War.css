@@ -40,8 +40,7 @@
     padding: 5px;
     border-radius: 50px; /* Optional: Rounded corners for styling */
     overflow-y: auto; /* Add scroll if content overflows */
-    border: 1px solid black; /* Adds a solid black border */
-    background-color: rgba(0, 0, 0, 0.9); /* Optional: Adds a light background for contrast */
+    
   }
   .hint-text {
     display: none; /* Initially hide the text */
@@ -51,12 +50,14 @@
     transform: translateX(-50%);
     padding: 5px;
     background-color: rgba(0, 0, 0, 0.8); /* Dark background for the text */
-    color: white; /* White text */
     font-size: 1.2rem;
     border-radius: 5px;
     margin-top: 5px;
   }
-  
+  .hint_guy{
+    border: 1px solid black; /* Adds a solid black border */
+    background-color: rgba(0, 0, 0, 0.9); /* Optional: Adds a light background for contrast */
+  }
   .hint-container:hover .hint-text {
     display: block; /* Show the text when the image is hovered */
   }

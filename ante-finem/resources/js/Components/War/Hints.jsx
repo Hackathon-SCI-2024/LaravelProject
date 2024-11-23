@@ -8,9 +8,9 @@ export default function Hints() {
     }
   return (
     <>
-    <img src={hint_guy} className='rounded-full h-[10vh] w-[5vw]'/>
+    <img src={hint_guy} className='rounded-full h-[10vh] w-[5vw] hint_guy'/>
     <div>
-        <img src={speech_bubble}></img>
+        <img src={speech_bubble} className='h-[10vh] w-[15vw]'></img>
     </div>
     </>
   );
