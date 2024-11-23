@@ -1,7 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useEffect } from 'react';
 
-export default function War({ setPuzzle }) {
+export default function War({ setPuzzle, onLoaded }) {
+	useEffect(() => {
+		const timer = setTimeout(() => {
+			console.log("war loaded");
+			onLoaded?.();
+		}, 1000);
+	}, []);
 	return (
 		<div
 			className="relative h-screen flex flex-col justify-center items-center bg-cover bg-center px-6 md:px-20"

@@ -1,7 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion'; // Animation library
+import { useEffect } from'react'; 
 
-export default function Antique({ setPuzzle }) {
+export default function Antique({ setPuzzle, onLoaded }) {
+	useEffect(() => {
+		const timer = setTimeout(() => {
+			console.log("Home loaded");
+			onLoaded?.();
+		}, 1000);
+	}, []);
 	return (
 		<div
 			className="relative h-screen flex flex-col justify-center items-center bg-cover bg-center px-6 md:px-20"

@@ -4,7 +4,13 @@ import letter from "./../../../../assets/20th_century/ww2_paper_texture.png";
 import Popup from "./../Main/Popup";
 import "./War.css";
 
-export default function Letter() {
+export default function Letter({setPuzzle, onLoaded}) {
+    useEffect(() => {
+		const timer = setTimeout(() => {
+			console.log("prehistoric loaded");
+			onLoaded?.();
+		}, 1000);
+	}, []);
     const decodedWords = [
         "Rozpoczac", "ofensywe", "na", "froncie", "wschodnim", "o", "godzinie", "4:00",
         "Skupic", "atak", "na", "sektorze", "B-19", "Wzmocnic", "sily", "pancerne",

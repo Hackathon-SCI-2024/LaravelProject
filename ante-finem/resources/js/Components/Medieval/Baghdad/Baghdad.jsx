@@ -4,7 +4,13 @@ import paperSheet from "./../../../../../assets/medieval/arab_paper.jpg";
 import infoImage from "./../../../../../assets/medieval/info.png";
 import Popup from "../../Main/Popup";
 
-export default function Baghdad({ setPuzzle }) {
+export default function Baghdad({ setPuzzle, onLoaded }) {
+	useEffect(() => {
+		const timer = setTimeout(() => {
+			console.log("prehistoric loaded");
+			onLoaded?.();
+		}, 1000);
+	}, []);
 	const greekAlphabet = ["Α", "Β", "Γ", "Δ", "Ε", "Ζ", "Η", "Θ", "Ι", "Κ", "Λ", "Μ", "Ν", "Ξ", "Ο", "Π", "Ρ", "Σ", "Τ", "Υ", "Φ", "Χ", "Ψ", "Ω"];
 	const operations = ["+", "-", "*"];
 

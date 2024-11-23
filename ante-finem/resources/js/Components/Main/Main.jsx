@@ -1,6 +1,7 @@
 //Technologies
 
 import React from "react";
+import { useState, useEffect, useRef } from "react";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
 // ---
@@ -16,6 +17,7 @@ import Slider from "./Slider";
 import Letter from "../War/Letter";
 import Antique_solomon from "../Antique/Antique_solomon";
 import Lascaux from "../Prehistoric/Lascaux/Lascaux";
+import LazyLoading from "../Main/LazyLoading"
 
 // ---
 // Images imports
@@ -31,31 +33,52 @@ import medievalImage from "../../../../assets/medieval/medieval_background.jpg";
 // ---
 
 export default function Main() {
-	const [puzzle, setPuzzle] = React.useState(0);
+	const [puzzle, setPuzzle] = useState(0);
+	const [activePuzzle, setActivePuzzle] = useState(0);
 	const puzzles = [
-		<Home setPuzzle={setPuzzle} />,
+		<Home setPuzzle={setPuzzle}  />,
 		<Prehistoric setPuzzle={setPuzzle} />,
 		<Lascaux setPuzzle={setPuzzle} />,
 		"",
 		"",
-		<Antique setPuzzle={setPuzzle}/>,
+		<Antique setPuzzle={setPuzzle} />,
 		<Antique_solomon setPuzzle={setPuzzle} />,
 		"",
 		"",
-		<Medieval setPuzzle={setPuzzle}/>,
+		<Medieval setPuzzle={setPuzzle} />,
 		<Baghdad setPuzzle={setPuzzle} />,
 		"",
 		"",
-		<War setPuzzle={setPuzzle}/>,
+		<War setPuzzle={setPuzzle} />,
 		<Letter setPuzzle={setPuzzle} />,
 		"",
 		"",
 	];
+
+	const [showLazyLoading, setShowLazyLoading] = useState(false);
+	const isInitialRender = useRef(true);
+	const [isLoaded, setIsLoaded] = useState(false);
+
+	useEffect(() => {
+		if (isInitialRender.current) {
+			isInitialRender.current = false;
+			return;
+		}
+		setShowLazyLoading(true);
+	}, [puzzle])
+
+	useEffect(() => {
+		console.log("[MAIN] new activePuzzle received: " + activePuzzle);
+	}, [activePuzzle]);
+
 	const puzzleImges = ["", prehistoricImage, lascauxImage, "", "", RomeImage, "", "", "", medievalImage, BaghdadImage, "", "", war2Image, warImage, "", ""];
 
 	return (
 		<div className="bg-cover bg-center w-screen min-h-screen flex flex-col" style={{ backgroundImage: `url(${puzzleImges[puzzle]})` }}>
-			<div className="w-full flex-1">{puzzles[puzzle]}</div>
+			<LazyLoading showLazyLoading={showLazyLoading} setShowLazyLoading={setShowLazyLoading} puzzle={puzzle} setActivePuzzle={setActivePuzzle} isLoaded={isLoaded} setIsLoaded={setIsLoaded} activePuzzle={activePuzzle}/>
+			<React.Suspense fallback={<></>}>
+				<div className="w-full flex-1">{React.cloneElement(puzzles[activePuzzle], {onLoaded: () => {console.log("[MAIN] component loaded"); setIsLoaded(true)} })}</div>
+			</React.Suspense>
 			{puzzle !== 0 && <Slider puzzle={puzzle} setPuzzle={setPuzzle} />}
 		</div>
 	);

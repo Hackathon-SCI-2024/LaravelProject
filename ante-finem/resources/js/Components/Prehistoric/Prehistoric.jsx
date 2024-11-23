@@ -1,7 +1,15 @@
 import React from 'react';
 import { motion } from 'framer-motion'; // Animation library
+import { useEffect } from 'react';
 
-export default function Prehistoric({ setPuzzle }) {
+export default function Prehistoric({ setPuzzle, onLoaded }) {
+	useEffect(() => {
+		const timer = setTimeout(() => {
+			console.log("prehistoric loaded");
+			onLoaded?.();
+		}, 1000);
+	}, []);
+
 	return (
 
 		<div

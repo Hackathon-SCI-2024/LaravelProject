@@ -18,6 +18,20 @@
     animation-delay: 2.5s;
 }
 
+#lazyLoadingDot1 {
+    animation: dotAnimation 1s infinite;
+}
+
+#lazyLoadingDot2 {
+    animation: dotAnimation 1s infinite;
+    animation-delay: 0.2s;
+}
+
+#lazyLoadingDot3 {
+    animation: dotAnimation 1s infinite;
+    animation-delay: 0.4s;
+}
+
 @keyframes homeEnableGameTextHover {
     0% {
         transform: translateX(0px);
@@ -48,3 +62,14 @@
 }
 
 
+@keyframes dotAnimation {
+    0% {
+        opacity:0;
+    }
+    50% {
+        opacity:1;
+    }
+    100% {
+        opacity:0;
+    }
+}

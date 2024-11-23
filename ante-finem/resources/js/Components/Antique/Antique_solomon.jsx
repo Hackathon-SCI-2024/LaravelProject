@@ -7,7 +7,13 @@ import woman_with_baby from './../../../../assets/antiquity/woman_child.png';
 import woman_sad from './../../../../assets/antiquity/woman_sad.png';
 import Popup from './../Main/Popup.jsx';
 
-export default function Antique_solomon({ setPuzzle }) {
+export default function Antique_solomon({ setPuzzle, onLoaded }) {
+  useEffect(() => {
+		const timer = setTimeout(() => {
+			console.log("prehistoric loaded");
+			onLoaded?.();
+		}, 1000);
+	}, []);
   const [showPopup, setShowPopup] = useState(false);
   const [popupContent, setPopupContent] = useState(null);
   const [initPopup, setInitPopup] = useState(true); // State for initial popup

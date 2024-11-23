@@ -24,7 +24,14 @@ const generatePuzzle = () => {
 	return numbers;
 };
 
-const Lascaux = ({ setPuzzle }) => {
+const Lascaux = ({ setPuzzle, onLoaded }) => {
+	useEffect(() => {
+		const timer = setTimeout(() => {
+			console.log("prehistoric loaded");
+			onLoaded?.();
+		}, 1000);
+	}, []);
+
 	const rows = 2;
 	const cols = 3;
 	const images = [lascaux_1, lascaux_2, lascaux_3, lascaux_4, lascaux_5, lascaux_6];
